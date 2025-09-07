@@ -1,0 +1,41 @@
+{
+  "name": "smartmeal-ai",
+  "version": "1.0.0",
+  "description": "Free AI-powered recipe generator, meal planner, and calorie tracker",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server . -p 3000 -o",
+    "dev": "npx live-server --port=3000 --open=/",
+    "build": "echo 'No build process needed for static site'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "recipe",
+    "meal-planner",
+    "calorie-tracker",
+    "nutrition",
+    "cooking",
+    "food",
+    "ai",
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": "SmartMeal AI Team",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/smartmeal-ai.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/smartmeal-ai/issues"
+  },
+  "homepage": "https://github.com/yourusername/smartmeal-ai#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
