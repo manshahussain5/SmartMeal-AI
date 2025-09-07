@@ -6,6 +6,17 @@ let nutritionData = {};
 let favoriteRecipes = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
 let mealHistory = JSON.parse(localStorage.getItem('mealHistory')) || [];
 
+// Global function for mobile menu toggle (fallback for mobile devices)
+function toggleMobileMenu() {
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (navToggle && navMenu) {
+        navToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    }
+}
+
 // Free nutrition database (simplified USDA data)
 const nutritionDB = {
     'chicken breast': { calories: 165, protein: 31, carbs: 0, fat: 3.6, fiber: 0 },
@@ -64,7 +75,16 @@ function initNavigation() {
 
     // Toggle mobile menu
     if (navToggle) {
-        navToggle.addEventListener('click', function() {
+        // Add click event
+        navToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Add touch event for mobile devices
+        navToggle.addEventListener('touchstart', function(e) {
+            e.preventDefault();
             navToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
@@ -76,6 +96,14 @@ function initNavigation() {
             navToggle.classList.remove('active');
             navMenu.classList.remove('active');
         });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (navToggle && navMenu && !navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
     });
 
     // Smooth scrolling for anchor links

@@ -1594,6 +1594,21 @@ body {
 
     .about-stats {
         grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .stat-item {
+        padding: 20px 15px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+        line-height: 1.1;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+        line-height: 1.2;
     }
 
     .contact-content {
@@ -1650,5 +1665,24 @@ body {
 
     .footer-container {
         padding: 0 15px;
+    }
+    
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .stat-item {
+        padding: 18px 12px;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+        line-height: 1.1;
+    }
+    
+    .stat-label {
+        font-size: 0.85rem;
+        line-height: 1.2;
     }
 }
