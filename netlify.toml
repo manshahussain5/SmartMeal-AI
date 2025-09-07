@@ -1,0 +1,43 @@
+[build]
+  # No build command needed for static site
+  command = "echo 'Static site - no build required'"
+  
+  # Publish the root directory
+  publish = "."
+  
+  # Functions directory (if you add serverless functions later)
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# Redirect rules for SPA (if needed)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache static assets
+[[headers]]
+  for = "/styles.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/script.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
